@@ -5,4 +5,4 @@
  * @author Administrator
  *
  */
-package com.modjk.jbbs.controllers;
+package com.modjk.jbbs.data;
