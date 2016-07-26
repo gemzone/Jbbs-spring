@@ -1,8 +1,10 @@
-package com.modjk.jbbs.data;
+package com.modjk.jbbs.data.temp;
 
 import java.util.List;
 
 import javax.sql.DataSource;
+
+import com.modjk.jbbs.data.User;
 
 public interface UserDAO
 {

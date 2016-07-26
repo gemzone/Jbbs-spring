@@ -1,4 +1,4 @@
-package com.modjk.jbbs.data;
+package com.modjk.jbbs.data.temp;
 
 import java.util.List;
 

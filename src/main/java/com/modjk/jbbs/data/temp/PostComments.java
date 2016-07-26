@@ -2,7 +2,7 @@
  * @author Jung Seong Hun
  *
  */
-package com.modjk.jbbs.data;
+package com.modjk.jbbs.data.temp;
 
 public class PostComments extends Result
 {

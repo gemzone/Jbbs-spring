@@ -2,7 +2,7 @@
  * @author Jung Seong Hun
  *
  */
-package com.modjk.jbbs.data;
+package com.modjk.jbbs.data.temp;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 

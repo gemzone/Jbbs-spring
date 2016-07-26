@@ -4,6 +4,8 @@ jnk bulletin board system
 
 javascript framework: (jquery, bootstrap, angularjs)
 
+DBCP: HikariCP, 
+
 template engine: thymeleaf
 
 ORM: hibernate

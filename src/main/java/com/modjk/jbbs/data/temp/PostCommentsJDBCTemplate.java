@@ -1,4 +1,4 @@
-package com.modjk.jbbs.data;
+package com.modjk.jbbs.data.temp;
 
 import java.util.List;
 
@@ -6,9 +6,10 @@ import javax.sql.DataSource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-public class PostsJDBCTemplate implements PostsDAO
+public class PostCommentsJDBCTemplate implements PostCommentsDAO
 {
 	private static final Logger logger = LoggerFactory.getLogger(UserJDBCTemplate.class);
 	private DataSource dataSource;
@@ -22,34 +23,30 @@ public class PostsJDBCTemplate implements PostsDAO
 		
 		logger.debug("setDataSource");
 	}
+
 	@Override
-	public long create(Long userId, String name, String title, String text, String file1, String file2, String link1,
-			String link2)
+	public long create(Long postId, Long userId, String name, String text)
 	{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
 	@Override
-	public Posts get(Long postId)
+	public List<PostComments> list(Long postId)
 	{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 	@Override
-	public List<Posts> list()
-	{
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public void delete(Long postId)
+	public void delete(Long commentId)
 	{
 		// TODO Auto-generated method stub
 		
 	}
+
 	@Override
-	public void update(Long postId, Long userId, String name, String title, String text, String file1, String file2,
-			String link1, String link2)
+	public void update(Long commentId, Long postId, Long userId, String name, String text)
 	{
 		// TODO Auto-generated method stub
 		
