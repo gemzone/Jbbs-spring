@@ -4,7 +4,7 @@
  */
 package com.modjk.jbbs.data;
 
-public class Comments extends Result
+public class PostComments extends Result
 {
 	public long comment_id;
 	public long post_id;

@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-public class CommentsJDBCTemplate implements CommentsDAO
+public class PostCommentsJDBCTemplate implements PostCommentsDAO
 {
 	private static final Logger logger = LoggerFactory.getLogger(UserJDBCTemplate.class);
 	private DataSource dataSource;
@@ -32,7 +32,7 @@ public class CommentsJDBCTemplate implements CommentsDAO
 	}
 
 	@Override
-	public List<Comments> list(Long postId)
+	public List<PostComments> list(Long postId)
 	{
 		// TODO Auto-generated method stub
 		return null;

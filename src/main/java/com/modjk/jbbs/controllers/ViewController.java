@@ -1,4 +1,4 @@
-package com.modjk.jbbs.controller;
+package com.modjk.jbbs.controllers;
 
 import java.io.IOException;
 import java.io.PrintWriter;
