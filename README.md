@@ -1,11 +1,12 @@
-# Jbbs-spring
+Jbbs-spring
 ===============
 jnk bulletin board system
-
 
 javascript framework: (jquery, bootstrap, angularjs)
 
 template engine: thymeleaf
+
+ORM: hibernate
 
 Specifications
 ===============

@@ -186,10 +186,6 @@ protected void doDelete(HttpServletRequest request, HttpServletResponse response
 	out.print(json.toString());
 }
 
-
-
-
-
 //logger.debug( "Content-Type : " +  request.getHeader("Content-Type")  ) ;
 //
 //logger.debug( "content-type : " +  request.getHeader("content-type")  ) ;
