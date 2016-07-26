@@ -5,7 +5,7 @@ jnk bulletin board system
 
 javascript framework: (jquery, bootstrap, angularjs)
 
-template engine: mustache
+template engine: thymeleaf
 
 Specifications
 ===============

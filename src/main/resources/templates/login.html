@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Insert title here</title>
 	<link rel="stylesheet" href="./css/bootstrap.min.css" />
 	<link rel="stylesheet" href="./css/bootstrap-theme.css" />
 	<script src="./js/jquery-1.12.4.min.js"></script>
 	<script src="./js/bootstrap.min.js"></script>
  	<script>
- 	
  		$(document).ready(function () {
- 			
- 			
+ 			/*
  			$.ajax({
  	            type: "post",
  	            url: "",
@@ -21,8 +19,7 @@
  	            	
  	            }
  	        });
- 			
- 			
+ 			*/
 //  			statusCode: {
 //                 404: function () { console.log("Ajax:: 404 Error. "); },
 //                 403: function () { console.log("Ajax:: 403 Error. "); },
@@ -33,15 +30,17 @@
  	</script>
 </head>
 <body>
-		{{#items}}
-		Name: {{name}}
-		Price: {{price}}
-		  {{#features}}
-		  Feature: {{description}}
-		  {{/features}}
-		{{/items}}
-
-
+		
+		<div th:if="${session.id}">
+			<span th:text="${session.id}"></span>
+			<a href="logout">로그아웃</a>
+		</div>
+		
+		<div th:unless="${session.id}">
+			로그인안됨
+		</div>
+		
+		
 		<!-- 
 		<c:choose>
 	    <c:when test="${not empty id}">

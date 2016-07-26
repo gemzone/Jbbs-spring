@@ -1,13 +1,10 @@
 package com.modjk.jbbs.controllers;
 
 import javax.servlet.http.HttpSession;
-import javax.swing.text.View;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,50 +15,13 @@ public class LoginController
 {
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	
-	
-
 	@RequestMapping("/login")
 	public String login(Model model, HttpSession session)
 	{
-		
 		String id = session.getAttribute("id") == null ? (String) session.getAttribute("id") : "";
-		
-		// model.addAttribute("idid", id);
-		
-		
+		model.addAttribute("id", id);
 		return "login";
 	}
-	
-	
-//	@RequestMapping("/login/process/{id}/{password}")
-//	public ModelAndView loginProcess(@PathVariable("id") String id,
-//			@PathVariable("password") String password,
-//			Model model, HttpSession session)
-//	{
-//		ModelAndView mv = new ModelAndView();
-//		
-//		System.out.println(id);
-//		System.out.println(password);
-//		
-//		if( "123".equals(password) )
-//		{
-//			session.setAttribute("id", id);
-//			
-//		}
-//		else
-//		{
-//			
-//			
-//		}
-//		
-//		mv.setViewName("redirect:login");
-//		return mv;
-//	}
-	
-	
-	// http://test.modjk.com:8080/bbs/login/process?id=test&password=321
-	
-	
 	
 	@RequestMapping(value = "/loginProcess", method = RequestMethod.POST )
 	public ModelAndView loginProcess(@RequestParam("user_id") String id,
@@ -76,11 +36,9 @@ public class LoginController
 		if( "123".equals(password) )
 		{
 			session.setAttribute("id", id);
-			
 		}
 		else
 		{
-			
 			
 		}
 		
@@ -94,25 +52,13 @@ public class LoginController
 	public ModelAndView loginProcess(Model model, HttpSession session)
 	{
 		ModelAndView mv = new ModelAndView();
-		
-		
 		session.invalidate();
-//		
-//		if( "123".equals(password) )
-//		{
-//			session.setAttribute("id", id);
-//			
-//		}
-//		else
-//		{
-//			
-//			
-//		}
-		
 		mv.setViewName("redirect:/login");
 		return mv;
 	}
-	
+
+}
+
 	
 	
 // 	@RequestMapping("/test")
@@ -122,8 +68,6 @@ public class LoginController
 //		model.addAttribute("CommentList", commentList);
 //		return "SimpleComment/simple-comment";
 //	}
-
-}
 
 
 
