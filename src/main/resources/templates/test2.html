@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   
+</head>
+<body>
+
+<!-- 
+	<div th:if="${user.name}">
+		<span th:text="${session.id}"></span>
+		<a href="logout">로그아웃</a>
+	</div>
+	
+	<div th:unless="${session.id}">
+		로그인안됨
+	</div>
+ -->
+	<div th:each="user : ${users}">
+        <td th:text="${user.name}">1</td>
+        <td><a href="#" th:text="${user.userId}">Title ...</a></td>
+        <td th:text="${user.id}">Text ...</td>
+    </div>
+	
+	<hr />
+	
+	
+	<div th:each="user : ${users2}">
+        <td th:text="${user.name}">1</td>
+        <td><a href="#" th:text="${user.userId}">Title ...</a></td>
+        <td th:text="${user.id}">Text ...</td>
+    </div>
+	
+	
+</body>
+</html>
