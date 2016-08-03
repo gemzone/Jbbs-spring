@@ -6,7 +6,6 @@ package com.modjk.jbbs.data;
 
 import java.io.Serializable;
 import java.util.Date;
- 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,7 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
- 
+
 @Entity
 @Table(name="jnk_user")
 public class User implements Serializable
@@ -50,6 +49,16 @@ public class User implements Serializable
 	
 	@Column(name="is_superadmin")
 	public boolean isSuperadmin;
+
+//	@Column(name = "creation_time", nullable = false)
+//	@Type(type = "org.jadira.usertype.dateandtime.threeten.PersistentZonedDateTime")
+//	private ZonedDateTime creationTime;
+//
+//
+//	@Column(name = "modification_time")
+//    @Type(type = "org.jadira.usertype.dateandtime.threeten.PersistentZonedDateTime")
+//    private ZonedDateTime modificationTime;
+	
 	
 	@Column(name="register_time")
 	@Temporal(TemporalType.TIMESTAMP)
