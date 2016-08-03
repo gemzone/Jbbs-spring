@@ -30,13 +30,15 @@
  	</script>
 </head>
 <body>
-		
-		<div th:if="${session.id}">
-			<span th:text="${session.id}"></span>
+		 <p th:if="${param.f}">로그인 실패</p>
+
+
+		<div th:if="${session.user_id}">
+			<span th:text="${session.user_id}"></span>
 			<a href="logout">로그아웃</a>
 		</div>
 		
-		<div th:unless="${session.id}">
+		<div th:unless="${session.user_id}">
 			로그인안됨
 		</div>
 		

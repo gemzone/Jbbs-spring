@@ -29,43 +29,102 @@ public class UserController
 	@RequestMapping("/login")
 	public String login(Model model, HttpSession session)
 	{
-		String id = session.getAttribute("id") == null ? (String) session.getAttribute("id") : "";
-		model.addAttribute("id", id);
+//		User user = session.getAttribute("user");
+//		model.addAttribute("user", id);
 		return "login";
 	}
 	
 	@RequestMapping(value = "/loginProcess", method = RequestMethod.POST )
 	public ModelAndView loginProcess(@RequestParam("user_id") String id,
 			@RequestParam("user_password") String password,
-			Model model, HttpSession session)
+			Model model, 
+			HttpSession session)
 	{
 		ModelAndView mv = new ModelAndView();
 		
-		System.out.println(id);
-		System.out.println(password);
+		User user = userRepository.login(id, password);
+		sessionUpdate(session, user);
 		
-		if( "123".equals(password) )
+		if( user == null ) 
 		{
-			session.setAttribute("id", id);
+			mv.setViewName("redirect:/login?f=1");	// fail true
 		}
 		else
 		{
-			
+			mv.setViewName("redirect:/login");
 		}
-		mv.setViewName("redirect:/login");
 		return mv;
 	}
 	
-
-	
 	@RequestMapping("/logout")
-	public ModelAndView loginProcess(Model model, HttpSession session)
+	public ModelAndView logout(Model model, HttpSession session)
 	{
 		ModelAndView mv = new ModelAndView();
 		session.invalidate();
 		mv.setViewName("redirect:/login");
 		return mv;
 	}
+	
+	
+	public void sessionUpdate(HttpSession session, User user)
+	{
+		if( user != null ) 
+		{
+			session.setAttribute("user_id", user.userId);
+			session.setAttribute("id", user.id);
+			session.setAttribute("name", user.name);
+		}
+	}
+	
+
+	public void sessionRemove(HttpSession session)
+	{
+		session.invalidate();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	// 
+//	@RequestMapping("/users")
+//	public String list(Model model)
+//	{
+//		List<User> list = userRepository.findAll();
+//		for( User u : list )
+//		{
+//			System.out.println(u.name);
+//			System.out.println(u.id);
+//		}
+//		model.addAttribute("users", list);
+//		User list2 = userRepository.findByName("name");
+//		model.addAttribute("users2", list2);
+//		
+//		return "test2";
+//	}
+//	
+//	
+//	@RequestMapping("/userList")
+//	public String list(Model model)
+//	{
+//		List<User> list = userRepository.findAll();
+//		for( User u : list )
+//		{
+//			System.out.println(u.name);
+//			System.out.println(u.id);
+//		}
+//		model.addAttribute("users", list);
+//		User list2 = userRepository.findByName("name");
+//		model.addAttribute("users2", list2);
+//		
+//		return "test2";
+//	}
+//	
 	
 	
 	
