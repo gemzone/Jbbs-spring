@@ -23,8 +23,5 @@ public class JbbsSpringApplicationTests implements CommandLineRunner
 	{
 		// TODO Auto-generated method stub
 		
-		
-		
-		
 	}
 }
