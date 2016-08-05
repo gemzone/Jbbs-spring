@@ -1,4 +1,4 @@
-package com.modjk.jbbs.data;
+package com.modjk.jbbs.data.domain;
 
 import java.io.Serializable;
 import java.util.Date;

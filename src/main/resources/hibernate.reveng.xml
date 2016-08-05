@@ -3,7 +3,10 @@
 
 <hibernate-reverse-engineering>
 	<type-mapping>
-	 	<sql-type jdbc-type="NVARCHAR" hibernate-type="String" />
-	 	<sql-type jdbc-type="BIGINT"  hibernate-type="long" />
+	 	<sql-type jdbc-type="NVARCHAR" not-null="false" hibernate-type="String" />
+	 	<sql-type jdbc-type="NVARCHAR" not-null="true" hibernate-type="string" />
+	 	
+	 	<sql-type jdbc-type="BIGINT" not-null="false" hibernate-type="Long" />
+	 	<sql-type jdbc-type="BIGINT" not-null="true" hibernate-type="long" />
 	</type-mapping>
 </hibernate-reverse-engineering>

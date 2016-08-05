@@ -1,4 +1,4 @@
-package com.modjk.jbbs.controllers;
+package com.modjk.jbbs.data.controller;
 
 import javax.servlet.http.HttpSession;
 
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.modjk.jbbs.data.Member;
-import com.modjk.jbbs.data.MemberRepository;
+import com.modjk.jbbs.data.domain.Member;
+import com.modjk.jbbs.data.service.MemberJpaRepository;
 
 /**
  * @author gemzone
@@ -22,17 +22,36 @@ import com.modjk.jbbs.data.MemberRepository;
 public class MemberController 
 {
 	@Autowired
-	public MemberRepository memberRepository;
+	public MemberJpaRepository memberRepository;
 	
 	
+//	@ResponseBody
+//	@RequestMapping(path="/member/login", produces="text/json")
+//	public String login(Model model, HttpSession session)
+//	{
+////		User user = session.getAttribute("user");
+////		model.addAttribute("user", id);
+//		return "login";
+//	}
+	
+	
+
 	@ResponseBody
-	@RequestMapping(path="/member/login", produces="text/json")
-	public String login(Model model, HttpSession session)
+	@RequestMapping(path="/test/create", produces="text/json")
+	public String create(Model model, HttpSession session)
 	{
+
+		Member m = new Member();
+//		
+		memberRepository.save( m );
+		
+		
 //		User user = session.getAttribute("user");
 //		model.addAttribute("user", id);
 		return "login";
 	}
+	
+	
 	
 	@RequestMapping(value = "/loginProcess", method = RequestMethod.POST )
 	public ModelAndView loginProcess(@RequestParam("user_id") String id,
@@ -117,44 +136,44 @@ public class MemberController
 //	
 	
 	
-	
-	/**
-	 * @param model
-	 * @return
-	 */
-	@RequestMapping("/test2")
-	public String view(Model model)
-	{
-		
-//		Configuration configuration = new Configuration();
-//        configuration.configure();
-//        ServiceRegistry sr = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
-//
-//        SessionFactory sf = configuration.buildSessionFactory(sr);
-//
-//        
-        
-//		List<User> list = userRepository.findAll();
-//		for( User u : list )
-//		{
-//			System.out.println(u.name);
-//			System.out.println(u.id);
-//		}
-//		model.addAttribute("users", list);
-//		User list2 = userRepository.findByName("name");
-//		model.addAttribute("users2", list2);
-
-//        Session ss = sf.openSession();
-//        ss.beginTransaction();
-//        
-//		JnkUserHome jnkUserHome = new JnkUserHome();
-//		JnkUser user = jnkUserHome.findById(1);
-//		ss.getTransaction().commit();
-//		ss.close();
-//		System.out.println( user.getName() );
+//	
+//	/**
+//	 * @param model
+//	 * @return
+//	 */
+//	@RequestMapping("/test2")
+//	public String view(Model model)
+//	{
 //		
-		return "test2";
-	}
+////		Configuration configuration = new Configuration();
+////        configuration.configure();
+////        ServiceRegistry sr = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
+////
+////        SessionFactory sf = configuration.buildSessionFactory(sr);
+////
+////        
+//        
+////		List<User> list = userRepository.findAll();
+////		for( User u : list )
+////		{
+////			System.out.println(u.name);
+////			System.out.println(u.id);
+////		}
+////		model.addAttribute("users", list);
+////		User list2 = userRepository.findByName("name");
+////		model.addAttribute("users2", list2);
+//
+////        Session ss = sf.openSession();
+////        ss.beginTransaction();
+////        
+////		JnkUserHome jnkUserHome = new JnkUserHome();
+////		JnkUser user = jnkUserHome.findById(1);
+////		ss.getTransaction().commit();
+////		ss.close();
+////		System.out.println( user.getName() );
+////		
+//		return "test2";
+//	}
 	
 //	
 //	@ModelAttribute("users")

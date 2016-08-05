@@ -1,14 +1,16 @@
-package com.modjk.jbbs.data;
+package com.modjk.jbbs.data.service;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import com.modjk.jbbs.data.domain.Member;
+
 /**
  * @author gemzone (admin@modjk.com)
  * @version 1.0
  */
-public interface MemberRepository extends JpaRepository<Member, Long>
+public interface MemberJpaRepository extends JpaRepository<Member, Long>
 {
 	/**
 	 * 유저 검색
