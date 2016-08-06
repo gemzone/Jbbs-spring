@@ -4,21 +4,17 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "member")
-public class Member implements java.io.Serializable
+@Table(name = "user")
+public class User implements java.io.Serializable
 {
 	private static final long serialVersionUID = 1L;
-	
-	
-	private long memberId;
+	private long userId;
 	private int groupId;
 	private String id;
 	private byte[] passwordSha2512;
@@ -32,14 +28,14 @@ public class Member implements java.io.Serializable
 	private Date modificationTime;
 	private Date registerTime;
 
-	public Member()
+	public User()
 	{
 	}
 
-	public Member(long memberId, int groupId, String id, String name, String email, byte level, int point,
-			String comment, boolean isSuperadmin)
+	public User(long userId, int groupId, String id, String name, String email, byte level, int point, String comment,
+			boolean isSuperadmin)
 	{
-		this.memberId = memberId;
+		this.userId = userId;
 		this.groupId = groupId;
 		this.id = id;
 		this.name = name;
@@ -50,11 +46,11 @@ public class Member implements java.io.Serializable
 		this.isSuperadmin = isSuperadmin;
 	}
 
-	public Member(long memberId, int groupId, String id, byte[] passwordSha2512, byte[] passwordSha3, String name,
+	public User(long userId, int groupId, String id, byte[] passwordSha2512, byte[] passwordSha3, String name,
 			String email, byte level, int point, String comment, boolean isSuperadmin, Date modificationTime,
 			Date registerTime)
 	{
-		this.memberId = memberId;
+		this.userId = userId;
 		this.groupId = groupId;
 		this.id = id;
 		this.passwordSha2512 = passwordSha2512;
@@ -70,15 +66,16 @@ public class Member implements java.io.Serializable
 	}
 
 	@Id
-	@Column(name = "member_id", unique = true, nullable = false)
-	public long getMemberId()
+
+	@Column(name = "user_id", unique = true, nullable = false)
+	public long getUserId()
 	{
-		return this.memberId;
+		return this.userId;
 	}
 
-	public void setMemberId(long memberId)
+	public void setUserId(long userId)
 	{
-		this.memberId = memberId;
+		this.userId = userId;
 	}
 
 	@Column(name = "group_id", nullable = false)

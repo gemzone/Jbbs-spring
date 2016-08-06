@@ -2,23 +2,17 @@ package com.modjk.db;
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
-import org.hibernate.service.ServiceRegistryBuilder;
- 
 
-
+@SuppressWarnings("deprecation")
 public class HibernateUtil
 {
 	private static SessionFactory sessionFactory;
-	private static ServiceRegistry serviceRegistry;
 	  
 	static 
 	{
 		try
 		{
-			Configuration configuration = new Configuration().configure();
-			serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
-			sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+			sessionFactory = new Configuration().configure().buildSessionFactory();
 		} 
 		catch (HibernateException e)
 		{

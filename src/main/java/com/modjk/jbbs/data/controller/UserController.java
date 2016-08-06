@@ -3,7 +3,10 @@ package com.modjk.jbbs.data.controller;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -11,18 +14,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.modjk.jbbs.data.domain.Member;
-import com.modjk.jbbs.data.service.MemberJpaRepository;
+import com.modjk.jbbs.data.domain.User;
+import com.modjk.jbbs.data.service.UserJpaRepository;
+import com.modjk.jbbs.data.service.UserService;
 
 /**
  * @author gemzone
  *
  */
 @Controller
-public class MemberController 
+public class UserController 
 {
 	@Autowired
-	public MemberJpaRepository memberRepository;
+	UserService userService;
 	
 	
 //	@ResponseBody
@@ -34,17 +38,26 @@ public class MemberController
 //		return "login";
 //	}
 	
-	
-
 	@ResponseBody
 	@RequestMapping(path="/test/create", produces="text/json")
 	public String create(Model model, HttpSession session)
 	{
-
-		Member m = new Member();
-//		
-		memberRepository.save( m );
 		
+	//	userService.createUser();
+		
+		
+		
+//		User user = userJpaRepository.findByName("sdfsdfsdf");
+//		
+//		
+//		System.out.println(user.getName());
+//		
+//		
+//		
+//		
+//		
+//		userJpaRepository.create("asdf", "bserb", "123123", "ageewg", "nrtrtnrtn");
+//		
 		
 //		User user = session.getAttribute("user");
 //		model.addAttribute("user", id);
@@ -60,18 +73,18 @@ public class MemberController
 			HttpSession session)
 	{
 		ModelAndView mv = new ModelAndView();
-		
-		Member member = memberRepository.login(id, password);
-		sessionUpdate(session, member);
-		
-		if( member == null ) 
-		{
-			mv.setViewName("redirect:/login?f=1");	// fail true
-		}
-		else
-		{
-			mv.setViewName("redirect:/login");
-		}
+//		
+//		User member = memberRepository.login(id, password);
+//		sessionUpdate(session, member);
+//		
+//		if( member == null ) 
+//		{
+//			mv.setViewName("redirect:/login?f=1");	// fail true
+//		}
+//		else
+//		{
+//			mv.setViewName("redirect:/login");
+//		}
 		return mv;
 	}
 	
@@ -84,7 +97,7 @@ public class MemberController
 		return mv;
 	}
 	
-	public void sessionUpdate(HttpSession session, Member member)
+	public void sessionUpdate(HttpSession session, User member)
 	{
 		if( member != null ) 
 		{

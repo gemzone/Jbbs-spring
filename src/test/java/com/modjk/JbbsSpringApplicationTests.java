@@ -8,7 +8,7 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import com.modjk.jbbs.data.service.MemberService;
+import com.modjk.jbbs.data.service.UserService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = JbbsSpringApplication.class)
@@ -16,19 +16,16 @@ import com.modjk.jbbs.data.service.MemberService;
 public class JbbsSpringApplicationTests implements CommandLineRunner
 {
 	@Autowired
-	MemberService memberService;
-	
-	
+	UserService userService;
 	
 	@Test
 	public void contextLoads()
 	{
-		System.out.print("contextLoads");
+		System.out.println("contextLoads");
 		
+	//	System.out.println( userService.getIdentity() );
 		
-		
-		memberService.create();
-		
+		userService.addUser("asdfasdf", "asdvasdv", "asdfsadf","sdfabsfdb", "asdbasbdsdab");
 		
 //		
 //		
